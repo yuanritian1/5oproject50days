@@ -8,3 +8,18 @@ ul{
 a{
     text-decoration: none;
 }
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.content_item{
+    width: 100px;
+    height: 500px;
+    background: red;
+    border-radius: 25px;
+   margin:0 15px;
+   transition: all 0.5s linear;
+}
+.active{
+    width: 400px !important;
+}
