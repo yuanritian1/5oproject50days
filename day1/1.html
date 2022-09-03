@@ -12,63 +12,12 @@
 <body>
     <div class="container">
 
-        <div class="content_item" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242306111155-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661187821&t=d4a47c81c8a177468e45d1a62a17a028);
-          background-size: cover;
-  background-position: x;
-  background-repeat: no-repeat;
-            ">
-        </div>
-        <div class="content_item" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242306111155-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661187821&t=d4a47c81c8a177468e45d1a62a17a028);
-        background-size: cover;
-background-position: x;
-background-repeat: no-repeat;
-          ">
-        </div>
-        <div class="content_item" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242306111155-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661187821&t=d4a47c81c8a177468e45d1a62a17a028);
-          background-size: cover;
-  background-position: x;
-  background-repeat: no-repeat;
-            ">
-        </div>
-        <div class="content_item" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242306111155-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661187821&t=d4a47c81c8a177468e45d1a62a17a028);
-          background-size: cover;
-  background-position: x;
-  background-repeat: no-repeat;
-            ">
-        </div>
-        <div class="content_item" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242306111155-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661187821&t=d4a47c81c8a177468e45d1a62a17a028);
-          background-size: cover;
-  background-position: x;
-  background-repeat: no-repeat;
-            ">
+    </div>
 
 </html>
 <script>
-    // let oDiv = document.getElementsByClassName('content_item')
-    // console.log(oDiv);
-    // for (let i = 0; i < oDiv.length; i++) {
-    //     oDiv[i].onclick = function () {
-    //         oDiv[i].style.width = 400 + 'px'
-    //         for (let j = 0; j < oDiv.length; j++) {
-    //             if (i != j) {
-    //                 oDiv[j].style.width = 200 + 'px'
-    //             }
-    //         }
-    //     }
-
-    // }
-    // 方法二
-    let oDiv = document.querySelectorAll('.content_item')
-    oDiv.forEach((panel, i) => {
-        panel.addEventListener('click', () => {
-            //classList是获取到dom数组的class样式集合
-            removeActiveClasses()
-            panel.classList.add('active')
-        })
-    });
-    function removeActiveClasses() {
-        oDiv.forEach(panel => {
-            panel.classList.remove('active')
-        })
-    }
+    let arr = [1, 2, 3]
+    let str = arr.join(',')
+    let newarr = []
+    console.log(newarr.concat(arr));
 </script>

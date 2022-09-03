@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="btn-container">
+            <div class="btn active" @click='qiehuan(1)'>
+                主页
+            </div>
+            <div class="btn " @click='qiehuan(2)'>
+                关于
+            </div>
+            <div class="btn " @click='qiehuan(3)'>
+                主页内容
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="content" v-show='num===1&&state'>
+                主页内容1
+            </div>
+            <div class="content" v-show='num===1&&state'>
+                主页内容2
+            </div>
+            <div class="content" v-show='num===1&&state'>
+                主页内容3
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            state: false,
+            num: 1
+        },
+        methods: {
+            qiehuan(value) {
+                this.num = value
+                this.state = true
+            }
+        }
+    })
+</script>

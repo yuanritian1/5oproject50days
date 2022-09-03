@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.box{
+    width: 400px;
+    height: 400px;
+    background: url('https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif');
+    background-repeat: no-repeat;
+   background-size: contain;
+   border: 20px solid rgba(255, 0, 0, 0.4);
+   background-clip: border-box;
+   background-origin: border-box;
+}
+button{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inputContent {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containerBox">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        年龄
+                    </th>
+                    <th>
+                        性别
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="content">
+            </tbody>
+            <tfoot id="foot">
+            </tfoot>
+        </table>
+    </div>
+    <div class="inputContent">
+        <label>序号</label><input type="text" disabled>
+        <label>姓名</label><input type="text">
+        <label>年龄</label><input type="text">
+        <label>性别</label><input type="text">
+        <button onclick="submit()">提交</button>
+        <button>取消</button>
+    </div>
+</body>
+
+</html>
+<script>
+    const DATE_ARR = [
+        { id: '1', name: '张三', age: '18', sex: '男' },
+        { id: '2', name: '张三1', age: '18', sex: '女' },
+        { id: '3', name: '张三2', age: '18', sex: '男' },
+        { id: '4', name: '张三3', age: '18', sex: '男' },
+        { id: '5', name: '张三4', age: '18', sex: '女' },
+        { id: '6', name: '张三5', age: '18', sex: '男' },
+    ]
+    let bodyContent = document.getElementById('content')
+    let index = 1
+    let type = ''
+    let footContent = document.getElementById('foot')
+    let btnGrounp = document.querySelectorAll('input')
+    let inputContent = document.getElementsByClassName('inputContent')[0]
+    function showTable(data) {
+        bodyContent.innerHTML = ''
+        data.forEach((item) => {
+            bodyContent.innerHTML += `
+    <tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.age}</td>
+        <td>${item.sex}</td>
+        <td><button onclick='edit(${item.id})'>编辑</button></td>
+        <td><button onclick='add()'>新增</button></td>
+        <td><button onclick='delete(${item.id})'>删除</button></td>
+        </tr>
+    `
+        })
+    }
+    function deleteData(value) {
+        for (let i = 0; i < DATE_ARR.length; i++) {
+            if (DATE_ARR[i].id === value) {
+                DATE_ARR.splice()
+            }
+        }
+    }
+    function add() {
+        inputContent.style.display = 'block'
+        type = 'add'
+        btnGrounp[0].style.display = 'none'
+    }
+    function edit(e) {
+        inputContent.style.display = 'block'
+        btnGrounp[0].style.display = 'block'
+        type = 'edit'
+        btnGrounp[0].value = DATE_ARR[e - 1].id
+        btnGrounp[1].value = DATE_ARR[e - 1].name
+        btnGrounp[2].value = DATE_ARR[e - 1].age
+        btnGrounp[3].value = DATE_ARR[e - 1].sex
+    }
+    function submit() {
+        if (type === 'add') {
+            let obj = {}
+            obj.id = `${+DATE_ARR[DATE_ARR.length - 1].id + 1}`
+            obj.name = btnGrounp[1].value
+            obj.age = btnGrounp[2].value
+            obj.sex = btnGrounp[3].value
+            DATE_ARR.push(obj)
+            fenye()
+        }
+        if (type === 'edit') {
+            for (let i = 0; i < DATE_ARR.length; i++) {
+                if (btnGrounp[0].value === DATE_ARR[i].id) {
+                    DATE_ARR[i].name = btnGrounp[1].value
+                    DATE_ARR[i].age = btnGrounp[2].value
+                    DATE_ARR[i].sex = btnGrounp[3].value
+
+
+                }
+            }
+        }
+        inputContent.style.display = 'none'
+        jiequ(index)
+    }
+    function jiequ(value) {
+        let arr = DATE_ARR.slice((value - 1) * 3, 3 * value)
+        showTable(arr)
+    }
+    function page(e) {
+        index = +e.innerHTML
+        jiequ(+e.innerHTML)
+    }
+    function fenye(data) {
+        let num = Math.ceil(data.length / 3)
+        let str = ''
+        for (let i = 0; i < num; i++) {
+            str += `
+<button onclick='page(this)'>${i + 1}</button>
+`
+        }
+        footContent.innerHTML = str
+        return num;
+    }
+    fenye(DATE_ARR)
+    jiequ(1)
+</script>
