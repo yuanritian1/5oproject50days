@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 100px;
+            height: 50px;
+            overflow: hidden;
+            transition: all 0.5s linear;
+        }
+
+        li {
+            width: 100px;
+            height: 50px;
+            background: red;
+            border: 1px solid white;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Box">
+        <ul>
+            <li>
+                首页
+            </li>
+            <li>首页内容1</li>
+            <li>首页内容2</li>
+            <li>首页内容3</li>
+        </ul>
+        <ul>
+            <li>
+                首页
+            </li>
+            <li>首页内容1</li>
+            <li>首页内容2</li>
+            <li>首页内容3</li>
+        </ul>
+        <ul>
+            <li>
+                首页
+            </li>
+            <li>首页内容1</li>
+            <li>首页内容2</li>
+            <li>首页内容3</li>
+        </ul>
+        <ul>
+            <li>
+                首页
+            </li>
+            <li>首页内容1</li>
+            <li>首页内容2</li>
+            <li>首页内容3</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    let state = false
+    let num = null
+    let ulList = document.querySelectorAll('ul')
+    for (let i = 0; i < ulList.length; i++) {
+        ulList[i].onclick = function () {
+            for (let j = 0; j < ulList.length; j++) {
+                if (j !== i) {
+                    ulList[j].style.height = 50 + 'px'
+                }
+                else {
+                    if (j === num) {
+                        ulList[j].style.height = 50 + 'px'
+                    }
+                    else {
+                        ulList[i].style.height = 200 + 'px'
+                    }
+
+                    num = j
+
+                }
+            }
+
+
+        }
+    }
+</script>
